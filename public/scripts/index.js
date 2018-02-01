@@ -39,10 +39,19 @@ const btnFindLunchClick = () =>
     request.send();
 };
 
+const btnClearClick = () =>
+{
+   document.getElementById("olLocations").innerHTML = "";
+   document.getElementById("divLocations").style.display = 'none';
+   document.getElementById("txtLocation").value  = "";
+};
+
+
 
 const documentReady = () =>
 {
   document.getElementById("btnFindLunch").onclick = btnFindLunchClick;
+  document.getElementById("btnClear").onclick = btnClearClick;
   document.getElementById("divLocations").style.display = 'none';
 };
 
