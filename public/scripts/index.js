@@ -23,12 +23,11 @@ const listLunch = (place) =>
   olLocations.insertBefore(listItem, olLocations.firstChild);
 }
 
-const btnFindLunchClick = () =>
+const fetchNewLunch = (location) =>
 {
     var host = window.location.protocol + '//' + window.location.hostname;
     var url = host + "/api/findLunch";
-    var location = document.getElementById("txtLocation").value;
-  
+   
     url += "?location=" + location;
   
     var request = new XMLHttpRequest();
@@ -37,6 +36,14 @@ const btnFindLunchClick = () =>
     request.setRequestHeader("Content-type", "application/json");
     request.onreadystatechange = function(){requestReadyStateChange(request);}; 
     request.send();
+}
+
+const btnFindLunchClick = () =>
+{
+    var location = document.getElementById("txtLocation").value;
+  
+    fetchNewLunch(location);
+  
 };
 
 const btnClearClick = () =>
